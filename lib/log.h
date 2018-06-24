@@ -19,7 +19,8 @@
 
 #include "mrom_data.h"
 
-#ifdef LOG_TO_STDOUT
+//#ifdef LOG_TO_STDOUT
+#if 1
   #include <stdio.h>
   #define ERROR(fmt, ...) fprintf(stderr, "%s: " fmt "\n", mrom_log_tag(), ##__VA_ARGS__)
   #define INFO(fmt, ...) printf("%s: " fmt "\n", mrom_log_tag(),  ##__VA_ARGS__)

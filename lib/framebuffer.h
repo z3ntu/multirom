@@ -18,6 +18,7 @@
 #ifndef H_FRAMEBUFFER
 #define H_FRAMEBUFFER
 
+#include <stdint.h>
 #include <linux/fb.h>
 #include <stdarg.h>
 #include <pthread.h>

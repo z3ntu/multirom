@@ -2903,7 +2903,7 @@ void *multirom_usb_refresh_thread_work(void *status)
         if(timer <= 50)
         {
             if (stat("/dev/block", &info) >= 0 &&
-                (info.st_ctime != last_ctime || info.st_ctimensec != last_ctime_nsec))
+                (info.st_ctime != last_ctime || info.st_ctim.tv_nsec != last_ctime_nsec))
             {
                 multirom_update_partitions((struct multirom_status*)status);
 
@@ -2911,7 +2911,7 @@ void *multirom_usb_refresh_thread_work(void *status)
                     (*usb_refresh_handler)();
 
                 last_ctime = info.st_ctime;
-                last_ctime_nsec = info.st_ctimensec;
+                last_ctime_nsec = info.st_ctim.tv_nsec;
             }
             timer = 500;
         }

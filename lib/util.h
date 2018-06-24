@@ -17,6 +17,7 @@
 #ifndef _INIT_UTIL_H_
 #define _INIT_UTIL_H_
 
+#include <stdint.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/time.h>
