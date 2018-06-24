@@ -1,0 +1,4 @@
+[wrap-git]
+directory=libbootimg
+url=https://github.com/z3ntu/libbootimg.git
+revision=meson
