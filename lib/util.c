@@ -24,7 +24,6 @@
 #include <time.h>
 #include <dirent.h>
 #include <fcntl.h>
-#include <cutils/android_reboot.h>
 #include <unistd.h>
 
 #ifdef HAVE_SELINUX
@@ -38,8 +37,6 @@
 #include <sys/wait.h>
 #include <sys/mount.h>
 #include <linux/loop.h>
-
-#include <private/android_filesystem_config.h>
 
 #include "log.h"
 #include "util.h"
@@ -69,13 +66,14 @@ time_t gettime(void)
  */
 static unsigned int android_name_to_id(const char *name)
 {
+    /* TODO: Fix
     struct android_id_info const *info = android_ids;
     unsigned int n;
 
     for (n = 0; n < android_id_count; n++) {
         if (!strcmp(info[n].name, name))
             return info[n].aid;
-    }
+    }*/
 
     return -1U;
 }
@@ -781,7 +779,7 @@ void do_reboot(int type)
     sync();
     emergency_remount_ro();
 
-    switch(type)
+    /*switch(type)
     {
         default:
         case REBOOT_SYSTEM:
@@ -796,7 +794,8 @@ void do_reboot(int type)
         case REBOOT_SHUTDOWN:
             android_reboot(ANDROID_RB_POWEROFF, 0, 0);
             break;
-    }
+    }*/
+    ERROR("do_reboot: Does not support reboot yet, looping.");
 
     while(1);
 }

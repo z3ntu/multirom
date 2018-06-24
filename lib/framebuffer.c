@@ -29,7 +29,6 @@
 #include <assert.h>
 #include <linux/fb.h>
 #include <linux/kd.h>
-#include <cutils/memory.h>
 #include <pthread.h>
 #include <png.h>
 #include <math.h>
@@ -43,12 +42,14 @@
 #include "atomics.h"
 #include "mrom_data.h"
 
+/*
 #if PIXEL_SIZE == 4
 #define fb_memset(dst, what, len) android_memset32(dst, what, len)
 #else
 #define fb_memset(dst, what, len) android_memset16(dst, what, len)
 #endif
-
+*/
+#define fb_memset(dst, what, len) memset(dst, what, len)
 
 uint32_t fb_width = 0;
 uint32_t fb_height = 0;
@@ -1103,7 +1104,8 @@ void *fb_draw_thread_work(UNUSED void *cookie)
         clock_gettime(CLOCK_MONOTONIC, &curr);
         diff = timespec_diff(&last, &curr);
 
-#if (PLATFORM_SDK_VERSION >= 25)
+//#if (PLATFORM_SDK_VERSION >= 25)
+#if 1
         expected = 1; // might be reseted by atomic_compare_exchange_strong
 #else
         expected.__val = 1; // might be reseted by atomic_compare_exchange_strong

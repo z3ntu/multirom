@@ -107,11 +107,11 @@ int main(int argc, const char *argv[])
     }
 
     srand(time(0));
-    klog_init();
+    //klog_init();
 
     // output all messages to dmesg,
     // but it is possible to filter out INFO messages
-    klog_set_level(6);
+    //klog_set_level(6);
 
     mrom_set_log_tag("multirom");
 

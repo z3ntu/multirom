@@ -92,6 +92,7 @@ int multirom_find_base_dir(void)
         REALDATA"/media/multirom",
         "/data/media/0/multirom",
         "/data/media/multirom",
+        "/tmp/multirom",
         NULL,
     };
 

@@ -18,7 +18,8 @@
 #ifndef ATOMICS_H
 #define ATOMICS_H
 
-#if (PLATFORM_SDK_VERSION >= 21)
+//#if (PLATFORM_SDK_VERSION >= 21)
+#if 1
 #include <stdatomic.h>
 #else
 #include <sys/atomics.h>

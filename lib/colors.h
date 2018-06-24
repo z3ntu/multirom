@@ -18,6 +18,7 @@
 #ifndef MROM_COLORS_H
 #define MROM_COLORS_H
 
+#include <stddef.h>
 #include <stdint.h>
 
 struct mrom_color_theme
